@@ -21,8 +21,8 @@ function App() {
     });
   }, [])
 
-  function handleSushiClick(e){
-    console.log(e)
+  function onEatSushi(sushi){
+    console.log(sushi)
   }
 
   return (
@@ -30,7 +30,7 @@ function App() {
       <SushiContainer
       sushiList={sushiList}
       wallet={wallet}
-      handleSushiClick={handleSushiClick}
+      onEatSushi={onEatSushi}
       />
       <Table
       wallet={wallet}

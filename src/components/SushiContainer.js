@@ -3,7 +3,7 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({sushiList, handleSushiClick}) {
+function SushiContainer({sushiList, onEatSushi}) {
 
   const [displayedSushis, setDisplayedSushis] = useState(4)
 
@@ -16,11 +16,8 @@ function SushiContainer({sushiList, handleSushiClick}) {
       {sushiList.slice((displayedSushis - 4), displayedSushis).map((sushi) => (
         <Sushi
         key={sushi.id}
-        name={sushi.name}
-        img_url={sushi.img_url}
-        price={sushi.price}
-        eaten={sushi.eaten}
-        handleSushiClick={handleSushiClick}
+        sushi={sushi}
+        onEatSushi={onEatSushi}
         />
       ))}
       <MoreButton
