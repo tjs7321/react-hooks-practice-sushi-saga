@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 
-function Sushi({name, img_url, price, eaten, handleSushiClick}) {
+function Sushi({sushi, onEatSushi}) {
+
+  const { name, img_url, price, eaten } = sushi;
+
+  function handleClick() {
+    if (!eaten) {
+      onEatSushi(sushi);
+    } else {
+      alert("Can't eat an empty plate, bud");
+    }
+  }
 
   return (
     <div className="sushi">
-      <div className="plate" onClick={(e) => handleSushiClick(e)}>
+      <div className="plate" onClick={handleClick}>
         {/* Tell me if this sushi has been eaten! */}
         {eaten ? null : (
           <img
