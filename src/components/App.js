@@ -8,6 +8,7 @@ const API = "http://localhost:3001/sushis";
 function App() {
 
   const [sushiList, setSushiList] = useState([])
+  const [wallet, setWallet] = useState(100)
 
   useEffect(() => {
     fetch(API)
@@ -19,8 +20,11 @@ function App() {
     <div className="app">
       <SushiContainer
       sushiList={sushiList}
+      wallet={wallet}
       />
-      <Table />
+      <Table
+      wallet={wallet}
+      />
     </div>
   );
 }
