@@ -13,14 +13,24 @@ function App() {
   useEffect(() => {
     fetch(API)
     .then(r => r.json())
-    .then(r => setSushiList(r))
+    .then((sushis) => {
+      const updatedSushis = sushis.map((sushi) => {
+        return { ...sushi, eaten: false };
+      });
+      setSushiList(updatedSushis);
+    });
   }, [])
+
+  function handleSushiClick(e){
+    console.log(e)
+  }
 
   return (
     <div className="app">
       <SushiContainer
       sushiList={sushiList}
       wallet={wallet}
+      handleSushiClick={handleSushiClick}
       />
       <Table
       wallet={wallet}

@@ -3,7 +3,7 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from "./Sushi";
 
-function SushiContainer({sushiList}) {
+function SushiContainer({sushiList, handleSushiClick}) {
 
   const [displayedSushis, setDisplayedSushis] = useState(4)
 
@@ -19,6 +19,8 @@ function SushiContainer({sushiList}) {
         name={sushi.name}
         img_url={sushi.img_url}
         price={sushi.price}
+        eaten={sushi.eaten}
+        handleSushiClick={handleSushiClick}
         />
       ))}
       <MoreButton
