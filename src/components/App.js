@@ -17,7 +17,9 @@ function App() {
 
   return (
     <div className="app">
-      <SushiContainer />
+      <SushiContainer
+      sushiList={sushiList}
+      />
       <Table />
     </div>
   );
