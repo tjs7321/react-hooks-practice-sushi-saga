@@ -24,14 +24,14 @@ function App() {
   function onEatSushi(eatenSushi) {
     if (wallet >= eatenSushi.price) {
       const updatedSushis = sushiList.map((sushi) => {
-        if (sushi.id === eatenSushi.id) return { ...sushi, eaten: true };
+        if (sushi.id === eatenSushi.id) return { ...sushi, eaten: true }
         return sushi;
-      });
+      })
 
-      setSushiList(updatedSushis);
-      setWallet((wallet) => wallet - eatenSushi.price);
+      setSushiList(updatedSushis)
+      setWallet((wallet) => wallet - eatenSushi.price)
     } else {
-      alert("Need more 💸");
+      alert("Need more 💸")
     }
   }
 
