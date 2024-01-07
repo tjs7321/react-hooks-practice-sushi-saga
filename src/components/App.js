@@ -21,8 +21,18 @@ function App() {
     });
   }, [])
 
-  function onEatSushi(sushi){
-    console.log(sushi)
+  function onEatSushi(eatenSushi) {
+    if (wallet >= eatenSushi.price) {
+      const updatedSushis = sushiList.map((sushi) => {
+        if (sushi.id === eatenSushi.id) return { ...sushi, eaten: true };
+        return sushi;
+      });
+
+      setSushiList(updatedSushis);
+      setWallet((wallet) => wallet - eatenSushi.price);
+    } else {
+      alert("Need more 💸");
+    }
   }
 
   return (
